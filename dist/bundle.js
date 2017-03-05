@@ -9637,26 +9637,56 @@ var QuestionsPage = function (_React$Component) {
         isFetching: true
       });
 
-      _jquery2.default.ajax({
-        type: 'GET',
-        url: 'http://pramodrhegde.in/questions.js',
-        cache: false,
-        dataType: 'JSONP',
-        jsonpCallback: 'getQuestions',
-        success: function success(data) {
-          _this2.setState({
-            questions: data.results,
-            isFetching: false,
-            currentQuestion: 1
-          });
-        },
-        error: function error(xhr) {
-          _this2.setState({
-            isFetching: false,
-            isError: true
-          });
-        }
-      });
+      // $.ajax({
+      //   type: 'GET',
+      //   url: 'https://pramodrhegde.in/questions.js/',
+      //   cache: false,
+      //   dataType: 'JSONP',
+      //   jsonpCallback: 'getQuestions',
+      //   success: (data) => {
+      //     this.setState({
+      //       questions: data.results,
+      //       isFetching: false,
+      //       currentQuestion: 1
+      //     });
+      //   },
+      //   error: (xhr) => {
+      //     this.setState({
+      //       isFetching: false,
+      //       isError: true
+      //     });
+      //   }
+      // });
+
+      var questions = [{
+        "question": "Who wrote and directed the 1986 film 'Platoon'?",
+        "correct_answer": "Oliver Stone",
+        "answers": ["Francis Ford Coppola", "Stanley Kubrick", "Oliver Stone", "Michael Cimino"]
+      }, {
+        "question": "Which actress danced the twist with John Travolta in 'Pulp Fiction'?",
+        "correct_answer": "Uma Thurman",
+        "answers": ["Kathy Griffin", "Uma Thurman", "Pam Grier", "Bridget Fonda"]
+      }, {
+        "question": "What was the first James Bond film?",
+        "correct_answer": "Dr. No",
+        "answers": ["Dr. No", "Goldfinger", "From Russia With Love", "Thunderball"]
+      }, {
+        "question": "Who plays Alice in the Resident Evil movies?",
+        "correct_answer": "Milla Jovovich",
+        "answers": ["Madison Derpe", "Milla Johnson", "Kim Demp", "Milla Jovovich"]
+      }, {
+        "question": "What is the oldest Disney film?",
+        "correct_answer": "Snow White and the Seven Dwarfs",
+        "answers": ["Pinocchio", "Snow White and the Seven Dwarfs", "Dumbo", "Fantasia"]
+      }];
+
+      setTimeout(function () {
+        _this2.setState({
+          questions: questions,
+          isFetching: false,
+          currentQuestion: 1
+        });
+      }, 1000);
     }
   }, {
     key: 'renderCurrentQuestion',
