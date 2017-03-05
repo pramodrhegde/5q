@@ -1,0 +1,21 @@
+$font-stack:    'Quicksand', sans-serif;
+$background-body : #EEEEEE;
+$background-color-light: #5E5E5E;
+$background-color-dark: #3B3B3B;
+
+*{
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+}
+
+body {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font: normal 16px/1.5 $font-stack;
+  background: $background-body;
+  color: $background-color-dark;
+}
