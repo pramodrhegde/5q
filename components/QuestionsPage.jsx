@@ -27,7 +27,7 @@ export default class QuestionsPage extends React.Component {
 
     $.ajax({
       type: 'GET',
-      url: 'http://pramodrhegde.in/questions.js/',
+      url: 'https://raw.githubusercontent.com/pramodrhegde/5q/master/questions.js',
       cache: false,
       dataType: 'JSONP',
       jsonpCallback: 'getQuestions',
