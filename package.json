@@ -10,11 +10,13 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
+    "d3": "^4.7.1",
     "ejs": "^2.5.6",
     "express": "^4.15.0",
     "jquery": "^3.1.1",
     "path": "^0.12.7",
     "react": "^15.4.2",
+    "react-d3": "^0.4.0",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
     "reflux": "^6.4.1"

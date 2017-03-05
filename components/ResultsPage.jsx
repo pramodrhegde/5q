@@ -1,4 +1,6 @@
 import React from 'react';
+import '../scss/result-page.scss';
+import ResultsChart from './ResultsChart.jsx';
 
 export default class ResultsPage extends React.Component {
 
@@ -48,10 +50,10 @@ export default class ResultsPage extends React.Component {
                           key={j}>
                   {
                     answer === question.correct_answer ?
-                    <span className='correct-choice'>c</span>
+                    <span className='correct-choice pull-left'></span>
                     :
                     answer === this.props.answers[i] ?
-                    <span className='incorrect-choice'>i</span>
+                    <span className='incorrect-choice pull-left'></span>
                     :
                     null
                   }
@@ -81,49 +83,56 @@ export default class ResultsPage extends React.Component {
   }
 
   onButtonClick() {
-    window.location.href = '/';
+    window.location.href = '/5q';
   }
 
   render() {
     return !this.state.showReview ?
-    <div>
-      <h2>{this.props.userName} - 5Q Results</h2>
-      <div className='left'>
-        <p>chart</p>
-      </div>
+    <div className='main-container results'>
+      <div className='clearfix'>
+        <h2>{this.props.userName} - 5Q Results</h2>
+        <div className='pull-left half'>
+          <ResultsChart data={[{value: this.state.correctAnswers / this.props.questions.length * 100},
+                {value: 100 - this.state.correctAnswers / this.props.questions.length * 100}]}/>
+        </div>
 
-      <div className='right'>
-        <p>Total Questions : <span>{this.props.questions.length}</span></p>
-        <p>Correct Answers : <span>{this.state.correctAnswers}</span></p>
-        <p>InCorrect Answers : <span>{this.props.questions.length - this.state.correctAnswers}</span></p>
-        <hr/>
-        <p>Your Score : <span>{this.state.correctAnswers / this.props.questions.length * 100}%</span></p>
-        <a href="javascript:void(0);"
-          onClick={this.onReviewClick.bind(this)}>
-          Review your answers
-        </a>
+        <div className='pull-right half'>
+          <p>Total Questions : <span className='pull-right'>{this.props.questions.length}</span></p>
+          <p>Correct Answers : <span className='pull-right'>{this.state.correctAnswers}</span></p>
+          <p>InCorrect Answers : <span className='pull-right'>{this.props.questions.length - this.state.correctAnswers}</span></p>
+          <hr/>
+          <p>Your Score : <span className='pull-right'>{this.state.correctAnswers / this.props.questions.length * 100}%</span></p>
+          <a href="javascript:void(0);"
+            className='pull-right'
+            onClick={this.onReviewClick.bind(this)}>
+            Review your answers
+          </a>
+        </div>
       </div>
-
-      <button className='btn btn-md'
-              onClick={this.onButtonClick.bind(this)}
-              type='button'
-              role='button'>
-        Play Again?
-      </button>
+      <div className='text-center'>
+        <button className='btn btn-md'
+                onClick={this.onButtonClick.bind(this)}
+                type='button'
+                role='button'>
+          Play Again?
+        </button>
+      </div>
     </div>
     :
-    <div>
+    <div className='main-container review'>
       <h2>{this.props.userName} - Answer sheet. (wrong answers are marked in red)</h2>
       <div className='review-list'>
         {this.getAnswerSheet()}
       </div>
 
-      <button className='btn btn-md'
-              onClick={this.onBackButtonClick.bind(this)}
-              type='button'
-              role='button'>
-        Back to results
-      </button>
+      <div className='text-center'>
+        <button className='btn btn-md'
+                onClick={this.onBackButtonClick.bind(this)}
+                type='button'
+                role='button'>
+          Back to results
+        </button>
+      </div>
     </div>
   }
 }

@@ -1,0 +1,56 @@
+@import 'main.scss';
+
+
+.question-wrapper {
+  margin-top: 25px;
+
+  .counter {
+    font-size: 14px;
+  }
+
+  .question {
+    font-size: 18px;
+    font-weight: $bold;
+  }
+
+  .question--options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .option {
+      font-size: 16px;
+      font-weight: $bold;
+      margin-bottom: 10px;
+
+      input[type='radio'] {
+        -webkit-appearance: none;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $white;
+        border-radius: 50%;
+        box-shadow: 0 1px 2px rgba(53, 53, 53, 0.15);
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+        &:checked {
+          -webkit-appearance: none;
+          border-radius: 50%;
+          width: 25px;
+          height: 25px;
+          background: $green;
+          box-shadow: 0 1px 2px rgba(63, 77, 30, 0.15);
+        }
+      }
+
+      input[type='radio'] + label {
+        vertical-align: top;
+        position: relative;
+        top: 5px;
+        margin-left: 10px;
+      }
+    }
+  }
+}

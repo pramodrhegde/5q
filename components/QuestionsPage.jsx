@@ -1,5 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import '../scss/questions.scss';
+
 import ResultsPage from './ResultsPage.jsx';
 
 function getQuestions(data) {
@@ -87,7 +89,7 @@ export default class QuestionsPage extends React.Component {
 
     return <div className='question-wrapper'
                 key={this.state.currentQuestion}>
-      <span>Question {this.state.currentQuestion} of {this.state.questions.length} </span>
+      <span className='counter'>Question {this.state.currentQuestion} of {this.state.questions.length} </span>
       <p className='question'>{currentQuestion.question}</p>
       <ul className='question--options'>
         {
@@ -138,17 +140,23 @@ export default class QuestionsPage extends React.Component {
 
     let question = this.renderCurrentQuestion();
 
-    return  <div>
+    return  <div className='main-container'>
       {question}
 
-      <button onClick={this.onButtonClick.bind(this)}>
-        {
-          this.state.currentQuestion === this.state.questions.length ?
-          'Finish'
-          :
-          'Next'
-        }
-      </button>
+      {
+        this.state.currentQuestion ?
+        <button onClick={this.onButtonClick.bind(this)}
+                className='btn pull-right'>
+          {
+            this.state.currentQuestion === this.state.questions.length ?
+            'Finish'
+            :
+            'Next'
+          }
+        </button>
+        :
+        null
+      }
     </div>
   }
 }

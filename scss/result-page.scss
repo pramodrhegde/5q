@@ -1,0 +1,59 @@
+@import 'main.scss';
+
+.main-container.results, .main-container.review {
+  h2 {
+    font-weight: $bold;
+    font-size: 24px;
+  }
+  button {
+    margin: 10px auto;
+  }
+}
+
+.main-container.results{
+  .half {
+    span {
+      margin-top: 3px;
+      font-weight: $bold;
+    }
+    a{
+      color: $background-color-dark;
+      font-weight: $bold;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    .half {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+.main-container.review {
+  .option {
+    .correct-choice, .incorrect-choice{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin-top: 3px;
+      & + p {
+        padding-left: 5px;
+      }
+    }
+    .correct-choice {
+      background: $green;
+    }
+    .incorrect-choice {
+      background: $red;
+    }
+    p {
+      display: inline-block;
+      padding-left: 20px;
+      margin: 0;
+    }
+    p:not(.user-choice) {
+      opacity: 0.5;
+    }
+  }
+}

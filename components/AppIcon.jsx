@@ -1,4 +1,5 @@
 import React from 'react';
+import '../scss/app-icon.scss';
 
 export default class AppIcon extends React.Component {
   render() {

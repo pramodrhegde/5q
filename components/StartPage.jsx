@@ -1,4 +1,6 @@
 import React from 'react';
+import '../scss/start-page.scss';
+
 import AppIcon from './AppIcon.jsx';
 
 export default class StartPage extends React.Component {
@@ -26,24 +28,26 @@ export default class StartPage extends React.Component {
   }
 
   render() {
-    return <div className='main-container'>
+    return <div className='main-container text-center'>
       <AppIcon />
       <h1>Welocome to 5Q</h1>
       <h2>Answer 5 questions and stand a chance to be a millianare.</h2>
 
       <div className='content-wrapper'>
         <label htmlFor='userName'>Enter your username to start Quiz</label>
-        <input type='text'
-              id='userName'
-              placeholder='enter username'
-              onChange={this.onInputChange.bind(this)}/>
-        <button className='btn btn-sm'
-                type='button'
-                role='button'
-                onClick={this.onButtonClick.bind(this)}
-                disabled={!this.state.userName ? true : false}>
-          Go!
-        </button>
+        <div className='btn-group'>
+          <input type='text'
+                id='userName'
+                placeholder='enter username'
+                onChange={this.onInputChange.bind(this)}/>
+          <button className='btn btn-sm'
+                  type='button'
+                  role='button'
+                  onClick={this.onButtonClick.bind(this)}
+                  disabled={!this.state.userName ? true : false}>
+            Go!
+          </button>
+        </div>
       </div>
     </div>
   }
