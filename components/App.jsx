@@ -1,5 +1,7 @@
 import React from 'react';
 import '../scss/main.scss';
+import StartPage from './StartPage.jsx';
+import QuestionsPage from './QuestionsPage.jsx';
 
 export default class App extends React.Component {
 

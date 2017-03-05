@@ -3,14 +3,6 @@ import AppIcon from './AppIcon.jsx';
 
 export default class StartPage extends React.Component {
 
-  static propTypes = {
-    setUserName: React.PropTypes.func
-  }
-
-  static defaultProps = {
-    setUserName: () => {}
-  }
-
   constructor(props) {
     super(props);
 
@@ -21,7 +13,7 @@ export default class StartPage extends React.Component {
 
   onInputChange(event) {
     this.setState({
-      userName: e.target.value
+      userName: event.target.value
     });
   }
 
@@ -40,7 +32,7 @@ export default class StartPage extends React.Component {
       <h2>Answer 5 questions and stand a chance to be a millianare.</h2>
 
       <div className='content-wrapper'>
-        <label for='userName'>Enter your username to start Quiz</label>
+        <label htmlFor='userName'>Enter your username to start Quiz</label>
         <input type='text'
               id='userName'
               placeholder='enter username'
