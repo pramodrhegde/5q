@@ -20,6 +20,17 @@
       color: $background-color-dark;
       font-weight: $bold;
     }
+
+    svg.rd3-chart {
+      box-shadow: 0 4px 4px rgba(254, 200, 75, 0.5);
+      border-radius: 50%;
+    }
+    g.rd3-piechart-arc:nth-child(1) path{
+      fill: #FEC84B;
+    }
+    g.rd3-piechart-arc:nth-child(2) path{
+      fill: #F74E62;
+    }
   }
   @media screen and (max-width: 420px) {
     .half {
