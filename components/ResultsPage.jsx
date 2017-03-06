@@ -94,6 +94,10 @@ export default class ResultsPage extends React.Component {
         <div className='pull-left half'>
           <ResultsChart data={[{value: this.state.correctAnswers / this.props.questions.length * 100},
                 {value: 100 - this.state.correctAnswers / this.props.questions.length * 100}]}/>
+          <div className='chart-indicators'>
+            <span>correct answer %</span>
+            <span>Incorrect answer %</span>
+          </div>
         </div>
 
         <div className='pull-right half'>
